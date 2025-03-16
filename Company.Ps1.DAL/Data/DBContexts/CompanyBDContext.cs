@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Company.Ps1.DAL.Data.DBContexts
 {
-    internal class CompanyBDContext : DbContext
+    public class CompanyBDContext : DbContext
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
