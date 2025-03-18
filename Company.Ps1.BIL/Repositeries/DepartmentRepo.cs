@@ -7,14 +7,15 @@ using Company.Ps1.BIL.Repositry;
 using Company.Ps1.DAL.Data.DBContexts;
 using Company.Ps1.DAL.Model;
 
+
 namespace Company.Ps1.BIL.Repositeries
-{
+{ 
     public class DepartmentRepo : IDepartment1
     {
         private readonly CompanyBDContext _dbContext;
-        public DepartmentRepo()
+        public DepartmentRepo(CompanyBDContext companyBDContext)
         { 
-            _dbContext = new CompanyBDContext();
+            _dbContext = companyBDContext;
         }
         public int add(Department department)
         {

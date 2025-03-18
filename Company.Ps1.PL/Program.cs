@@ -1,3 +1,8 @@
+using Company.Ps1.BIL.Repositeries;
+using Company.Ps1.BIL.Repositry;
+using Company.Ps1.DAL.Data.DBContexts;
+using Microsoft.EntityFrameworkCore;
+
 namespace Company.Ps1.PL
 {
     public class Program
@@ -8,7 +13,9 @@ namespace Company.Ps1.PL
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
-
+            builder.Services.AddScoped<IDepartment1 ,DepartmentRepo>(); //allow clr to create object
+            builder.Services.AddDbContext<CompanyBDContext>(option => option.UseSqlServer(builder.Configuration.GetConnectionString("Default"))); //allow clr to create object
+            //builder.Services.AddDbContext<CompanyBDContext>(option => option.UseSqlServer(builder.Configuration["Default"])); //allow clr to create object
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.

@@ -11,10 +11,14 @@ namespace Company.Ps1.DAL.Data.DBContexts
 {
     public class CompanyBDContext : DbContext
     {
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlServer("Server = .; Database = Company2; Trusted_Connection = True; TrustServerCertificate = True");
+        public CompanyBDContext(DbContextOptions<CompanyBDContext> options): base(options)
+        { 
+            
         }
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    optionsBuilder.UseSqlServer("Server = .; Database = Company2; Trusted_Connection = True; TrustServerCertificate = True");
+        //}
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
