@@ -1,0 +1,30 @@
+﻿@model Department
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details Page</h1>
+
+<br />
+<br />
+
+<form>
+    <div class="my-3">
+        <label asp-for="Code" class="col-form-label"></label>
+        <input asp-for="@Model.Code" class="form-control" />
+    </div>   
+    <div class="my-3">
+        <label asp-for="Name" class="col-form-label"></label>
+        <input asp-for="@Model.Name" class="form-control" />
+    </div>    
+    <div class="my-3">
+        <label asp-for="dateTime" class="col-form-label"></label>
+        <input asp-for="@Model.dateTime"  class="form-control" />
+    </div>
+
+    <div class="my-3">
+        <input type="submit" value="Edit" class="btn btn-primary"/>
+        <a asp-action="Index"class="text-danger">Back</a>
+    </div>
+</form>

@@ -22,7 +22,7 @@
                 <th>Code</th>
                 <th>Name</th>
                 <th>Date Of Creation</th>
-                <th>Details</th>
+                <th >Details</th>
                 <th>Update</th>
                 <th>Delete</th>
             </tr>
@@ -36,7 +36,7 @@
                             <td>@x.Name</td>
                             <td>@x.dateTime</td>
                             <td>
-                                <a asp-action="Details" class="btn btn-success">Details</a>
+                                <a class="btn btn-success" href="Department/Details/@x.Id">Details</a>
                             </td>
                             <td>
                                 <a asp-action="Edit" class="btn btn-warning">Update</a>
