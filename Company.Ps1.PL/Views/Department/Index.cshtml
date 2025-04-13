@@ -39,7 +39,7 @@
                                 <a class="btn btn-success" href="Department/Details/@x.Id">Details</a>
                             </td>
                             <td>
-                                <a asp-action="Edit" class="btn btn-warning">Update</a>
+                                <a asp-action="Edit" asp-route-id="@x.Id" class="btn btn-warning">Update</a>
                             </td>
                             <td>
                                 <a asp-action="Delete" class="btn btn-danger">Delete</a>

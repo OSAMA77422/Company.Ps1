@@ -58,5 +58,33 @@ namespace Company.Ps1.PL.Controllers
                 return View(result);
             }
         }
+
+        public IActionResult Edit(int id)
+        {
+            var result = _repo.Get(id);
+            if (result is null)
+            {
+                return NotFound(new { StatusCode = 404, Message = $"there is not department with this id: {id}" });
+            }
+            else
+            {
+                return View(result);
+            }
+        }
+
+        [HttpPost]
+        public IActionResult Edit([FromRoute]int id,Department department)
+        {
+            if (ModelState.IsValid && id == department.Id)
+            {
+                var count = _repo.update(department);
+                if (count > 0)
+                {
+                    return RedirectToAction("Index");
+                }
+            }
+                var d = _repo.Get(id);
+                return View(d);
+        }
     }
 }
