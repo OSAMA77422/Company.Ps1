@@ -3,6 +3,7 @@ using Company.Ps1.BIL.Repositry;
 using Company.Ps1.DAL.Model;
 using Company.Ps1.PL.DTO;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.DotNet.Scaffolding.Shared.Messaging;
 
 namespace Company.Ps1.PL.Controllers
 {
@@ -48,7 +49,14 @@ namespace Company.Ps1.PL.Controllers
         public IActionResult Details(int id)
         {
             var result = _repo.Get(id);
-            return View(result);
+            if (result is null)
+            {
+                return NotFound(new {StatusCode = 404, Message = $"there is not department with this id: {id}" });
+            }
+            else
+            {
+                return View(result);
+            }
         }
     }
 }
