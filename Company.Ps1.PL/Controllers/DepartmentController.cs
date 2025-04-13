@@ -46,7 +46,7 @@ namespace Company.Ps1.PL.Controllers
             return View(departmentDTO);
         }
 
-        public IActionResult Details(int id)
+        public IActionResult Details(int id, string ViewName = "Details")
         {
             var result = _repo.Get(id);
             if (result is null)
@@ -55,21 +55,13 @@ namespace Company.Ps1.PL.Controllers
             }
             else
             {
-                return View(result);
+                return View(ViewName ,result);
             }
         }
 
         public IActionResult Edit(int id)
         {
-            var result = _repo.Get(id);
-            if (result is null)
-            {
-                return NotFound(new { StatusCode = 404, Message = $"there is not department with this id: {id}" });
-            }
-            else
-            {
-                return View(result);
-            }
+            return Details(id, "Edit");
         }
 
         [HttpPost]
@@ -85,6 +77,26 @@ namespace Company.Ps1.PL.Controllers
             }
                 var d = _repo.Get(id);
                 return View(d);
+        }
+
+        public IActionResult Delete(int id)
+        {
+            return Details(id, "Delete");
+        }
+
+        [HttpPost]
+        public IActionResult Delete([FromRoute] int id, Department department)
+        {
+            if (ModelState.IsValid && id == department.Id)
+            {
+                var count = _repo.delete(department);
+                if (count > 0)
+                {
+                    return RedirectToAction("Index");
+                }
+            }
+            var d = _repo.Get(id);
+            return View(d);
         }
     }
 }
