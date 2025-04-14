@@ -25,5 +25,6 @@ namespace Company.Ps1.DAL.Data.DBContexts
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
         }
         public DbSet<Department> Departments { get; set; }
+        public DbSet<Employees> Employees { get; set; }
     }
 }

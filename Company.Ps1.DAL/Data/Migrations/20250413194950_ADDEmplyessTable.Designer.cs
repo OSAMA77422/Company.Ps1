@@ -4,6 +4,7 @@ using Company.Ps1.DAL.Data.DBContexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Company.Ps1.DAL.Data.Migrations
 {
     [DbContext(typeof(CompanyBDContext))]
-    partial class CompanyBDContextModelSnapshot : ModelSnapshot
+    [Migration("20250413194950_ADDEmplyessTable")]
+    partial class ADDEmplyessTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
